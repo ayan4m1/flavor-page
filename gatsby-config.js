@@ -11,6 +11,21 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: `${__dirname}/src/data`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: `${__dirname}/src/lists`
+      }
+    },
+    'gatsby-transformer-csv',
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'The Flavor Page',
