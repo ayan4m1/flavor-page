@@ -16,9 +16,21 @@ export default function ListPage({ data }) {
     };
   });
 
+  const { name, author } = data.listsJson;
+
   return (
     <Layout>
-      <h1>{data.listsJson.name}</h1>
+      <h1>{name}</h1>
+      <h3>
+        by{' '}
+        <a
+          href={`https://reddit.com/u/${author}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {author}
+        </a>
+      </h3>
       <Table striped hover>
         <thead>
           <th>Vendor</th>
@@ -59,6 +71,7 @@ export const pageQuery = graphql`
   query($code: String) {
     listsJson(code: { eq: $code }) {
       name
+      author
       flavors {
         vendorCode
         flavorName
