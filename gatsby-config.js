@@ -17,13 +17,6 @@ module.exports = {
         path: `${__dirname}/content/data`
       }
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'data',
-        path: `${__dirname}/content/lists`
-      }
-    },
     'gatsby-transformer-csv',
     'gatsby-transformer-json',
     {
