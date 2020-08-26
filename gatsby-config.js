@@ -14,17 +14,18 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'data',
-        path: `${__dirname}/src/data`
+        path: `${__dirname}/content/data`
       }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'data',
-        path: `${__dirname}/src/lists`
+        path: `${__dirname}/content/lists`
       }
     },
     'gatsby-transformer-csv',
+    'gatsby-transformer-json',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
