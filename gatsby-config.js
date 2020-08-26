@@ -20,6 +20,12 @@ module.exports = {
     'gatsby-transformer-csv',
     'gatsby-transformer-json',
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: process.env.GA_TRACKING_ID
+      }
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'The Flavor Page',
