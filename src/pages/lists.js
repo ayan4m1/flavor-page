@@ -9,8 +9,8 @@ export default function ListsPage({ data }) {
   const lists = data.allListsJson.edges.map(({ node }) => node);
 
   return (
-    <Layout>
-      <h1>Lists</h1>
+    <Layout title="Lists">
+      <h1>The List of Lists</h1>
       <Table striped hover>
         <thead>
           <tr>
