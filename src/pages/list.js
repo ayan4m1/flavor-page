@@ -1,14 +1,15 @@
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Table } from 'react-bootstrap';
+import ReactCountryFlag from 'react-country-flag';
 
 import Layout from '~components/Layout';
-import { Helmet } from 'react-helmet';
+// import { VendorInfo } from '~components/VendorInfo';
 
 export default function ListPage({ data }) {
-  const vendors = data.allVendorsCsv.nodes;
-  const flavors = data.listsJson.flavors.map((flavor) => {
+  const vendors = data.vendors.nodes;
+  const flavors = data.lists.flavors.map((flavor) => {
     const vendor = vendors.find((vend) => vend.code === flavor.vendorCode);
 
     return {
@@ -17,11 +18,10 @@ export default function ListPage({ data }) {
     };
   });
 
-  const { name, author } = data.listsJson;
+  const { name, author } = data.lists;
 
   return (
-    <Layout>
-      <Helmet title={name} />
+    <Layout title={name}>
       <h1>{name}</h1>
       <h3>
         by{' '}
@@ -35,22 +35,42 @@ export default function ListPage({ data }) {
       </h3>
       <Table striped hover>
         <thead>
-          <th>Vendor</th>
-          <th>Flavor</th>
-          <th>ATF Average %</th>
+          <tr>
+            <th>Vendor</th>
+            <th>Flavor</th>
+            <th>ATF Average %</th>
+          </tr>
         </thead>
         <tbody>
           {flavors.map((flavor) => (
             <tr key={flavor.flavorName}>
               <td>
                 {flavor.vendor ? (
-                  <a
-                    href={flavor.vendor?.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {flavor.vendor?.name}
-                  </a>
+                  <Fragment>
+                    {flavor.vendor.country && (
+                      <ReactCountryFlag
+                        countryCode={flavor.vendor.country}
+                        svg
+                        style={{
+                          fontSize: '2em',
+                          lineHeight: '2em'
+                        }}
+                      />
+                    )}{' '}
+                    <span>
+                      {flavor.vendor.url ? (
+                        <a
+                          href={flavor.vendor.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {flavor.vendor.name}
+                        </a>
+                      ) : (
+                        flavor.vendor.name
+                      )}
+                    </span>
+                  </Fragment>
                 ) : (
                   flavor.vendorCode
                 )}
@@ -71,7 +91,7 @@ ListPage.propTypes = {
 
 export const pageQuery = graphql`
   query($code: String) {
-    listsJson(code: { eq: $code }) {
+    lists: listsJson(code: { eq: $code }) {
       name
       author
       flavors {
@@ -81,9 +101,10 @@ export const pageQuery = graphql`
       }
     }
 
-    allVendorsCsv {
+    vendors: allVendorsJson {
       nodes {
         code
+        country
         name
         url
       }
