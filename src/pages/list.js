@@ -4,6 +4,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 
 import Layout from '~components/Layout';
+import { Helmet } from 'react-helmet';
 
 export default function ListPage({ data }) {
   const vendors = data.allVendorsCsv.nodes;
@@ -20,6 +21,7 @@ export default function ListPage({ data }) {
 
   return (
     <Layout>
+      <Helmet title={name} />
       <h1>{name}</h1>
       <h3>
         by{' '}
