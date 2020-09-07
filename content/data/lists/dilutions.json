@@ -3,6 +3,7 @@
   "author": "TeslaDelMar",
   "code": "dilutions",
   "dateAdded": "2020-08-25",
+  "description": "This is an automatically generated list that was created by taking ATF flavor data and looking for all flavors with an average usage percentage under 0.95%.",
   "flavors": [
     {
       "vendorCode": "BF",

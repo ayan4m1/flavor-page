@@ -9,7 +9,7 @@ import Layout from '~components/Layout';
 
 export default function ListPage({ data }) {
   const vendors = data.vendors.nodes;
-  const flavors = data.lists.flavors.map((flavor) => {
+  const flavors = data.list.flavors.map((flavor) => {
     const vendor = vendors.find((vend) => vend.code === flavor.vendorCode);
 
     return {
@@ -18,7 +18,7 @@ export default function ListPage({ data }) {
     };
   });
 
-  const { name, author } = data.lists;
+  const { name, author, description } = data.list;
 
   return (
     <Layout title={name}>
@@ -33,6 +33,7 @@ export default function ListPage({ data }) {
           {author}
         </a>
       </h3>
+      {description && <p>{description}</p>}
       <Table striped hover>
         <thead>
           <tr>
@@ -91,8 +92,9 @@ ListPage.propTypes = {
 
 export const pageQuery = graphql`
   query($code: String) {
-    lists: listsJson(code: { eq: $code }) {
+    list: listsJson(code: { eq: $code }) {
       name
+      description
       author
       flavors {
         vendorCode
