@@ -2,7 +2,7 @@ require('dotenv/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'flavor-page',
+    title: 'The Flavor Page',
     author: {
       name: 'ayan4m1 <andrew@bulletlogic.com>'
     },
