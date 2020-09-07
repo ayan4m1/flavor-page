@@ -5,7 +5,6 @@ import React from 'react';
 import { Container, Jumbotron, Row, Card, Col, Button } from 'react-bootstrap';
 
 import Layout from '~components/Layout';
-import SEO from '~components/SEO';
 import { graphql } from 'gatsby';
 
 export default function IndexPage({ data }) {
@@ -16,8 +15,7 @@ export default function IndexPage({ data }) {
   );
 
   return (
-    <Layout>
-      <SEO title="Home" />
+    <Layout title="Home">
       <Jumbotron variant="info">
         <Container>
           <h1>The Flavor Page</h1>
