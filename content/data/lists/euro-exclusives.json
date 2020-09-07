@@ -1,0 +1,45 @@
+{
+  "name": "Euro Exclusives",
+  "code": "euro-exclusives",
+  "author": "TeslaDelMar",
+  "dateAdded": "2020-09-07",
+  "description": "These flavors cannot be sourced directly from the US, and must be ordered from a site like Chef's Flavours in the UK.",
+  "flavors": [
+    {
+      "vendorCode": "CC",
+      "flavorName": "Banana Yoghurt",
+      "atfAverage": "3.00%"
+    },
+    {
+      "vendorCode": "CC",
+      "flavorName": "Pear Drops",
+      "atfAverage": "10.50%"
+    },
+    {
+      "vendorCode": "FA",
+      "flavorName": "Corn",
+      "atfAverage": "0.98%"
+    },
+    {
+      "vendorCode": "FA",
+      "flavorName": "Custard Premium",
+      "atfAverage": "2.49%"
+    },
+    {
+      "vendorCode": "FA",
+      "flavorName": "Milk",
+      "atfAverage": "1.58%"
+    },
+    {
+      "vendorCode": "FM",
+      "flavorName": "DROP",
+      "atfAverage": "3.50%",
+      "note": "This is a licorice flavor."
+    },
+    {
+      "vendorCode": "VT",
+      "flavorName": "Thai Sticky Rice",
+      "atfAverage": "3.76%"
+    }
+  ]
+}
