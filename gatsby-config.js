@@ -17,7 +17,6 @@ module.exports = {
         path: `${__dirname}/content/data`
       }
     },
-    'gatsby-transformer-csv',
     'gatsby-transformer-json',
     {
       resolve: 'gatsby-plugin-google-analytics',
