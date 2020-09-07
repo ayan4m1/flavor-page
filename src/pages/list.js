@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
-import { Table } from 'react-bootstrap';
+import { Card, Table } from 'react-bootstrap';
 import ReactCountryFlag from 'react-country-flag';
 
 import Layout from '~components/Layout';
@@ -44,41 +44,51 @@ export default function ListPage({ data }) {
         </thead>
         <tbody>
           {flavors.map((flavor) => (
-            <tr key={flavor.flavorName}>
-              <td>
-                {flavor.vendor ? (
-                  <Fragment>
-                    {flavor.vendor.country && (
-                      <ReactCountryFlag
-                        countryCode={flavor.vendor.country}
-                        svg
-                        style={{
-                          fontSize: '2em',
-                          lineHeight: '2em'
-                        }}
-                      />
-                    )}{' '}
-                    <span>
-                      {flavor.vendor.url ? (
-                        <a
-                          href={flavor.vendor.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {flavor.vendor.name}
-                        </a>
-                      ) : (
-                        flavor.vendor.name
-                      )}
-                    </span>
-                  </Fragment>
-                ) : (
-                  flavor.vendorCode
-                )}
-              </td>
-              <td>{flavor.flavorName}</td>
-              <td>{flavor.atfAverage}</td>
-            </tr>
+            <Fragment key={flavor.flavorName}>
+              <tr>
+                <td>
+                  {flavor.vendor ? (
+                    <Fragment>
+                      {flavor.vendor.country && (
+                        <ReactCountryFlag
+                          countryCode={flavor.vendor.country}
+                          svg
+                          style={{
+                            fontSize: '32px'
+                          }}
+                        />
+                      )}{' '}
+                      <span>
+                        {flavor.vendor.url ? (
+                          <a
+                            href={flavor.vendor.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {flavor.vendor.name}
+                          </a>
+                        ) : (
+                          flavor.vendor.name
+                        )}
+                      </span>
+                    </Fragment>
+                  ) : (
+                    flavor.vendorCode
+                  )}
+                </td>
+                <td>{flavor.flavorName}</td>
+                <td>{flavor.atfAverage}</td>
+              </tr>
+              {flavor.note && (
+                <tr>
+                  <td colSpan={3}>
+                    <Card bg="info" text="white">
+                      <Card.Body>{flavor.note}</Card.Body>
+                    </Card>
+                  </td>
+                </tr>
+              )}
+            </Fragment>
           ))}
         </tbody>
       </Table>
@@ -100,6 +110,7 @@ export const pageQuery = graphql`
         vendorCode
         flavorName
         atfAverage
+        note
       }
     }
 
