@@ -22,6 +22,9 @@ export default function IndexPage({ data }) {
         <Container>
           <h1>The Flavor Page</h1>
           <h3>Because everyone loves a good list.</h3>
+          <Link to="/lists">
+            <Button variant="primary">View All &raquo;</Button>
+          </Link>
         </Container>
       </Jumbotron>
       <h4>New Lists</h4>
@@ -42,9 +45,11 @@ export default function IndexPage({ data }) {
                       })}
                     </p>
                   </Col>
-                  <Col md={4}>
+                  <Col md={4} className="button-container">
                     <Link to={`/${list.code}`}>
-                      <Button variant="info">View &raquo;</Button>
+                      <Button block variant="info">
+                        View &raquo;
+                      </Button>
                     </Link>
                   </Col>
                 </Row>

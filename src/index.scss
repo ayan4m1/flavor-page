@@ -5,3 +5,9 @@
 // Component styles
 @import 'components/Header';
 @import 'components/Layout';
+
+.button-container {
+  button {
+    height: 100%;
+  }
+}
