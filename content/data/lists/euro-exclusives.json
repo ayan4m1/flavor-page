@@ -17,6 +17,11 @@
     },
     {
       "vendorCode": "FA",
+      "flavorName": "Butter",
+      "atfAverage": "0.60%"
+    },
+    {
+      "vendorCode": "FA",
       "flavorName": "Corn",
       "atfAverage": "0.98%"
     },
@@ -24,6 +29,11 @@
       "vendorCode": "FA",
       "flavorName": "Custard Premium",
       "atfAverage": "2.49%"
+    },
+    {
+      "vendorCode": "FA",
+      "flavorName": "Lemon Zest",
+      "atfAverage": "0.50%"
     },
     {
       "vendorCode": "FA",
