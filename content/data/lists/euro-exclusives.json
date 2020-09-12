@@ -31,6 +31,16 @@
       "atfAverage": "1.58%"
     },
     {
+      "vendorCode": "FA",
+      "flavorName": "Pandoro",
+      "atfAverage": "1.59%"
+    },
+    {
+      "vendorCode": "FA",
+      "flavorName": "Whipped Cream",
+      "atfAverage": "1.61%"
+    },
+    {
       "vendorCode": "FM",
       "flavorName": "DROP",
       "atfAverage": "3.50%",
