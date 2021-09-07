@@ -1,11 +1,9 @@
 import { formatDistanceToNow, parseISO, compareDesc } from 'date-fns';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import React from 'react';
-import { Container, Jumbotron, Row, Card, Col, Button } from 'react-bootstrap';
+import { Container, Row, Card, Col, Button } from 'react-bootstrap';
 
 import Layout from '~components/Layout';
-import { graphql } from 'gatsby';
 
 export default function IndexPage({ data }) {
   const lists = data.allListsJson.nodes;
@@ -16,7 +14,7 @@ export default function IndexPage({ data }) {
 
   return (
     <Layout title="Home">
-      <Jumbotron variant="info">
+      <div className="p-5 mb-4 bg-light rounded-3">
         <Container>
           <h1>The Flavor Page</h1>
           <h3>Because everyone loves a good list.</h3>
@@ -24,7 +22,7 @@ export default function IndexPage({ data }) {
             <Button variant="primary">View All &raquo;</Button>
           </Link>
         </Container>
-      </Jumbotron>
+      </div>
       <h4>New Lists</h4>
       {lists.map((list) => (
         <Row key={list.code} className="mb-2">
@@ -43,11 +41,9 @@ export default function IndexPage({ data }) {
                       })}
                     </p>
                   </Col>
-                  <Col md={4} className="button-container">
-                    <Link to={`/${list.code}`}>
-                      <Button block variant="info">
-                        View &raquo;
-                      </Button>
+                  <Col md={4} className="d-grid gap-2">
+                    <Link className="d-grid" to={`/${list.code}`}>
+                      <Button variant="info">View &raquo;</Button>
                     </Link>
                   </Col>
                 </Row>

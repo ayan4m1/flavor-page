@@ -2,26 +2,23 @@ module.exports = {
   env: {
     browser: true,
     commonjs: true,
-    es6: true,
+    es2020: true,
     node: true
   },
-  plugins: ['import', 'react', 'prettier', 'jsx-a11y'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:import/errors',
-    'prettier',
-    'prettier/react'
+    'plugin:import/recommended'
   ],
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
+    requireConfigFile: false,
     ecmaFeatures: {
       jsx: true
     },
-    ecmaVersion: 9,
-    sourceType: 'module'
+    ecmaVersion: 12
   },
   rules: {
     'accessor-pairs': 2,
@@ -163,7 +160,9 @@ module.exports = {
     'no-console': 2,
     'no-debugger': 2,
     'prettier/prettier': 2,
-    'jsx-a11y/label-has-for': 0
+    'jsx-a11y/label-has-for': 0,
+    'react/jsx-uses-react': 0,
+    'react/react-in-jsx-scope': 0
   },
   settings: {
     react: {
@@ -172,9 +171,7 @@ module.exports = {
     'import/resolver': {
       alias: [
         ['~components', './src/components'],
-        ['~pages', './src/pages'],
-        ['~utils', './src/utils'],
-        ['~workers', './src/workers']
+        ['~pages', './src/pages']
       ]
     }
   }

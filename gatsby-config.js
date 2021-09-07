@@ -40,7 +40,14 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-offline',
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        sassOptions: {
+          precision: 6
+        }
+      }
+    },
     'gatsby-plugin-eslint'
   ]
 };

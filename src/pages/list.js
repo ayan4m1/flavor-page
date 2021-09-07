@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { Card, Table } from 'react-bootstrap';
 import ReactCountryFlag from 'react-country-flag';
 
@@ -101,7 +101,7 @@ ListPage.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query($code: String) {
+  query ($code: String) {
     list: listsJson(code: { eq: $code }) {
       name
       description
