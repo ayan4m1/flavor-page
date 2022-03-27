@@ -19,9 +19,9 @@ module.exports = {
     },
     'gatsby-transformer-json',
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingId: process.env.GA_TRACKING_ID
+        trackingIds: [process.env.GA_TRACKING_ID]
       }
     },
     {
@@ -39,7 +39,6 @@ module.exports = {
       }
     },
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
