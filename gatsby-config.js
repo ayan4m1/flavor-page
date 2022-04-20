@@ -1,5 +1,29 @@
 require('dotenv/config');
 
+const manifestOptions = {
+  name: 'The Flavor Page',
+  /* eslint-disable camelcase */
+  short_name: 'Flavor Page',
+  start_url: '/',
+  background_color: '#ffffff',
+  theme_color: '#663399',
+  /* eslint-enable camelcase */
+  display: 'minimal-ui',
+  icon: 'content/assets/gatsby-icon.png'
+};
+
+const gtagOptions = {
+  trackingId: process.env.GA_TRACKING_ID,
+  head: true,
+  anonymize: true
+};
+
+const sassOptions = {
+  sassOptions: {
+    precision: 6
+  }
+};
+
 module.exports = {
   siteMetadata: {
     title: 'The Flavor Page',
@@ -19,33 +43,17 @@ module.exports = {
     },
     'gatsby-transformer-json',
     {
-      resolve: 'gatsby-plugin-google-gtag',
-      options: {
-        trackingIds: [process.env.GA_TRACKING_ID]
-      }
+      resolve: 'gatsby-plugin-gtag',
+      options: gtagOptions
     },
     {
       resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'The Flavor Page',
-        /* eslint-disable camelcase */
-        short_name: 'Flavor Page',
-        start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#663399',
-        /* eslint-enable camelcase */
-        display: 'minimal-ui',
-        icon: 'content/assets/gatsby-icon.png'
-      }
+      options: manifestOptions
     },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-sass',
-      options: {
-        sassOptions: {
-          precision: 6
-        }
-      }
+      options: sassOptions
     },
     'gatsby-plugin-eslint'
   ]
